@@ -8,11 +8,12 @@
 
 比如，我们需要读取文本输入框的值，那么首先给这个input元素指定ref属性：
 
-```
-//JSX<input type="text" defaultValue="beijing" ref="q"    placeholder="请输入城市拼音，如：beijing"/>
+```html
+//JSX
+<input type="text" defaultValue="beijing" ref="q" placeholder="请输入城市拼音，如：beijing"/>
 ```
 
-声明了React元素的ref属性之后，可以通过**this.refs**对象访问 这个组件，比如上面的示例中：this.refs.q指向input组件对象，你应该已经注意到， 我们为React元素设置的ref属性值，在这里被用为this.refs对象的键值。
+声明了React元素的ref属性之后，可以通过**this.refs**对象访问 这个组件，比如上面的示例中：`this.refs.q`指向input组件对象，你应该已经注意到， 我们为React元素设置的ref属性值，在这里被用为this.refs对象的键值。
 
 - **获得DOM对象**
 
@@ -26,3 +27,4 @@ React.findDOMNode(component)
 
 如果React元素已经渲染到DOM树上，**findDOMNode()**方法将返回组件对象对应的DOM节 点对象，后续就可以使用标准的DOM API操作这个DOM对象了。
 
+来自[汇智网](http://www.hubwiz.com/class/552762019964049d1872fc88)
