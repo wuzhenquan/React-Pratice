@@ -123,6 +123,8 @@ React和ReactDOM的区别是?
 ```
 ## this.props.children
 
+`this.props.children`表示的是组件的所有子节点, 这是`this.props`对象的唯一一个例外属性. 除了`this.props.children`, `this.props`对象的其他属性都和组件的属性一样对应
+
 ```html
 var NotesList = React.createClass({
   render: function() {
@@ -148,8 +150,6 @@ ReactDOM.render(
 ```
 
 `React.Children.map()`是用来遍历对象子节点的方法
-
-`this.props.children`表示的是组件的所有子节点, 这是`this.props`对象的唯一一个例外属性. 除了`this.props.children`, `this.props`对象的其他属性都和组件的属性一样对应
 
 ## PropTypes
 

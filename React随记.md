@@ -17,5 +17,6 @@
     }
   })
   ```
-- 抖机灵
+- React Developer Tools会自动检测React组件，不过在webpack-dev-server模式下，webpack会自动将React组件放入到iframe下，导致React组件检测失败，变通方法是webpack-dev-server配置在--inline模式下即可: `webpack-dev-server --inline`
+
 
