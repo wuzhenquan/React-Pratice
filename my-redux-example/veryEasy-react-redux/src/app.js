@@ -1,31 +1,9 @@
-import {createStore} from 'redux'
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-// 创建一个 action
-let addTodoActions = function(text){
-  return {
-    type: 'add_todo',
-    text: text,
-  }
-}
-
-// 创建一个 reducer
-let todoReducer = function(state=[], action){
-  switch (action.type) {
-    case 'add_todo':
-      return state.slice(0).concat({
-        text: action.text,
-        completed: false,
-      })
-      break
-    default: return state
-  }
-}
-
-// 创建 store
-var store = createStore(todoReducer);
-
+// import addTodoActions from './actions'
+// import todoReducer from './reducers'
+import store from './store'
+console.log(store)
 // 创建一个 react component
 class App extends React.Component{
   constructor(props){
