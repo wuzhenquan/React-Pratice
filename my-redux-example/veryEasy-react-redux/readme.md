@@ -1,5 +1,7 @@
 It is my first demo about redux +react + es6.
+
 very simple.
+
 suit beginner.
 
 ####　run
