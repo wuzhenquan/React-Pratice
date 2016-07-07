@@ -1,11 +1,12 @@
-import React, { findDOMNode, Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
+import {findDOMNode} from 'react-dom'
 
 export default class AddTodo extends Component {
   render() {
     return (
       <div>
         <input type='text' ref='input' />
-        <button onClick={e => this.handleClick(e)}>
+        <button onClick={()=>this.handleClick()}>
           Add
         </button>
       </div>

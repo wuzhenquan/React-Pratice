@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        app:path.join(__dirname, 'containers','App.js'),
+        app:path.join(__dirname),
         vendors: ['react','redux']
     },
     output: {
