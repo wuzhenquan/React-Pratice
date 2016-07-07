@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import addTodoActions from './actions'
-// import todoReducer from './reducers'
-import store from './store'
+import {addTodoActions} from './actions/'
+import {store} from './store/'
 console.log(store)
 // 创建一个 react component
 class App extends React.Component{

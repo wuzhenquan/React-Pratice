@@ -1,7 +1,8 @@
 // 创建一个 action
-export function addTodoActions(text){
+function addTodoActions(text){
   return {
     type: 'add_todo',
     text: text,
   }
 }
+export {addTodoActions}

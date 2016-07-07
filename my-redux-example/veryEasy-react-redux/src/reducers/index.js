@@ -1,5 +1,5 @@
 // 创建一个 reducer
-export function todoReducer(state=[], action){
+function todoReducer(state=[], action){
   switch (action.type) {
     case 'add_todo':
       return state.slice(0).concat({
@@ -10,3 +10,4 @@ export function todoReducer(state=[], action){
     default: return state
   }
 }
+export { todoReducer }
