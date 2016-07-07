@@ -7,21 +7,21 @@ console.log(store)
 class App extends React.Component{
   constructor(props){
     super(props)
-    this.state = {items: store.getState()} // 对数据进行初始渲染
+    this.state = {items: store.getState()} // store.getState() 对数据进行初始渲染
     this.onChange = this.onChange.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
   }
   componentDidMount(){
-    let unsubscribe = store.subscribe(this.onChange) // 监听store的状态变化，当状态变化时，触发onChange回调。
+    let unsubscribe = store.subscribe(this.onChange) // store.subscribe() 监听store的状态变化，当状态变化时，触发onChange回调。
   }
   onChange(){
-    this.setState({items: store.getState()}) // 获取最新的state，并重新渲染视图
+    this.setState({items: store.getState()}) // store.getState() 获取最新的state，并重新渲染视图
   }
   handleAdd(){
     let input = ReactDOM.findDOMNode(this.refs.todo)
     let value = input.value.trim()
     if(value){
-      store.dispatch(addTodoActions(value)) // 修改 state
+      store.dispatch(addTodoActions(value)) // store.dispatch() 修改 state
     }
     input.value = ''
   }
