@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>todo-redux</title>
+</head>
+
+<body>
+  <div>
+    <p>
+      Clicked: <span id="value">0</span> times
+      <button id="increment">+</button>
+      <button id="decrement">-</button>
+    </p>
+  </div>
+  <script type="text/javascript" src="https://npmcdn.com/redux@3.5.2/dist/redux.min.js"></script>
+  <script type="text/javascript">
+    function counter(state = 0, action) {
+      switch (action.type) {
+        case 'INCREMENT':
+          return state + 1;
+        case 'DECREMENT':
+          return state - 1;
+        default:
+          return state;
+      }
+    }
+
+    let store = Redux.createStore(counter);
+    let valueEl = document.getElementById('value');
+
+    function render() {
+      valueEl.innerHTML = store.getState().toString();
+    }
+
+    render();
+
+    store.subscribe(render);
+
+    document.getElementById('increment')
+      .addEventListener('click', function() {
+        store.dispatch({
+          type: 'INCREMENT'
+        })
+      })
+    document.getElementById('decrement')
+      .addEventListener('click', function() {
+        store.dispatch({
+          type: 'DECREMENT'
+        })
+      })
+  </script>
+
+</body>
+
+</html>
