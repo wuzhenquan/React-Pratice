@@ -23,6 +23,7 @@
   </div>
   <script type="text/javascript" src="https://npmcdn.com/redux@3.5.2/dist/redux.min.js"></script>
   <script type="text/javascript">
+  // reducer
     function counterReducer(state = 0, action) {
       switch (action.type) {
         case 'INCREMENT':
@@ -34,10 +35,9 @@
       }
     }
 
-    /**
-     *  使reducer可鉴别，只处理有一致标识符的action
-     */
+  // 使reducer可鉴别，只处理有一致标识符的action
     function identify(identifier, reducer) {
+      // 返回一个 reducer
       return function identifiable(state, action) {
         //!important undefined 代表是初始化,需要返回缺省状态，直接委托给原reducer
         let initState = null;
