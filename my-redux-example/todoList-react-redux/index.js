@@ -6,7 +6,6 @@ import App from './containers/App'
 import todoApp from './reducers'
 
 let store = createStore(todoApp)
-console.log('aa')
 let rootElement = document.getElementById('root')
 render(
   <Provider store={store}>
