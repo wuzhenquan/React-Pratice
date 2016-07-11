@@ -54,9 +54,10 @@ function selectTodos(todos, filter) {
   }
 }
 
-// Which props do we want to inject, given the global state?
-// Note: use https://github.com/faassen/reselect for better performance.
+// connect方法中的回调函数，负责向当前组件的 props 中注入 state
 function select(state) {
+  // return 返回的是需要向组件中注入的 props
+  // 注入之后通过 this.props 查看这些 state 了
   return {
     visibleTodos: selectTodos(state.todos, state.visibilityFilter),
     visibilityFilter: state.visibilityFilter

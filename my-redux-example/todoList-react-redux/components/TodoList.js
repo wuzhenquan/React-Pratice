@@ -4,7 +4,7 @@ import Todo from './Todo'
 export default class TodoList extends Component {
   render(){
     return (
-      <ul>
+      <ul>  
         {this.props.todos.map((todo, index) => {
           return <Todo {...todo}
                        key={index}
