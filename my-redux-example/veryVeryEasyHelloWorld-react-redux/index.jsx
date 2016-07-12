@@ -53,7 +53,7 @@ class Hello extends React.Component {
   }
 }
 
-class Change extend React.Component {
+class Change extends React.Component {
   constructor(props){
     super(props)
     this.handleClick = this.handleClick.bind(this)
@@ -74,7 +74,7 @@ class App extends React.Component{
     super(props)
   }
   render(){
-    const { action, text} = this.props
+    const { actions, text} = this.props
     return(
       <div>
           <Hello actions={actions} text={text} />
@@ -84,25 +84,24 @@ class App extends React.Component{
    }
 }
 
-// 连接 React 组件和Redux
-//mapStateToProps的作用是声明，当state树变化的时候，哪些属性是我们关心的？
-//由于我们这个应用太小，只有一个属性，所以只有text这个字段。
+// 连接 React 组件和 Redux
+// 将 state 注入进 props
 function mapStateToProps(state) {
   return { text: state.text }
 }
-
-//mapDispatchToProps的作用是把store中的dispatch方法注入给组件
+// 将 actions 注入进 props
 function mapDispatchToProps(dispatch){
     return{
         actions : bindActionCreators({changeText:changeText,buttonClick:buttonClick},dispatch)
     }
 }
 
-//这里实际上给了App两个props：text和actions，即第4步中的那段注释
+// 注入, connect
+// 返回一个注入了 state 和 action creator 的 React 组件。
+// 也就是是一个新的已与 Redux store 连接的组件
 App = connect(mapStateToProps,mapDispatchToProps)(App)
-//Provider是react-redux直接提供的
-//store是我们在第3步中生成的
 
+// 渲染 App 将 store 注入，并用 Provider 在顶层包住组件
 render(
     <Provider store={store}>
         <App />
