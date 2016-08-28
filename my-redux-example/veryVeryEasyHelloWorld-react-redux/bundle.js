@@ -111,7 +111,7 @@
 	  function Hello(props) {
 	    _classCallCheck(this, Hello);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Hello).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (Hello.__proto__ || Object.getPrototypeOf(Hello)).call(this, props));
 
 	    _this.handleClick = _this.handleClick.bind(_this);
 	    return _this;
@@ -142,7 +142,7 @@
 	  function Change(props) {
 	    _classCallCheck(this, Change);
 
-	    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Change).call(this, props));
+	    var _this2 = _possibleConstructorReturn(this, (Change.__proto__ || Object.getPrototypeOf(Change)).call(this, props));
 
 	    _this2.handleClick = _this2.handleClick.bind(_this2);
 	    return _this2;
@@ -176,7 +176,7 @@
 	  function App(props) {
 	    _classCallCheck(this, App);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	  }
 
 	  _createClass(App, [{
