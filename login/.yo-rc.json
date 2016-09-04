@@ -1,6 +1,6 @@
 {
   "generator-react-webpack": {
-    "appName": "yoman",
+    "appName": "login",
     "style": "css",
     "postcss": false,
     "generatedWithVersion": 3
