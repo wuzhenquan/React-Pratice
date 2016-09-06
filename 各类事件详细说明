@@ -1,0 +1,14 @@
+各类事件详细说明：
+- 移动设备上的触摸事件：
+  - onTouchCancel
+  - onTouchEnd
+  - onTouchMove
+  - onTouchStart 
+- 键盘类事件：onKeyDown、onKeyPress、onKeyUp
+- 剪切类事件：onCopy、onCut、onPaste 
+- 表单类：onChange//内容变化即触发、onInput//输入框、onSubmit//禁止表单默认跳转行为
+- 事件：onFocus、onBlur 
+- UI元素类：onScroll(移动设备是手指滚动和PC的鼠标滑动)
+- 鼠标滚动事件：onWheel(鼠标滚轮)
+- 鼠标类型：onClick、onContextMenu//右键菜单、onDoubleClick //双击、onMouseDown、onMouseEnter、onMouseLeave、onMouseMove、onMouseOut、onMouseOver、onMouseUp
+- 拖拽事件：onDrop、onDrag、onDragEnd、onDragEnter、onDragExit、onDragLeave、onDragOver、onDragStart
