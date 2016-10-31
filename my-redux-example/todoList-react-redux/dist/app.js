@@ -19,7 +19,7 @@ webpackJsonp([0],{
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _reducers = __webpack_require__(186);
+	var _reducers = __webpack_require__(187);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -27,7 +27,6 @@ webpackJsonp([0],{
 
 	var store = (0, _redux.createStore)(_reducers2.default);
 	var rootElement = document.getElementById('root');
-	console.log(store.getState());
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRedux.Provider,
 	  { store: store },
@@ -794,7 +793,7 @@ webpackJsonp([0],{
 
 	var _TodoList2 = _interopRequireDefault(_TodoList);
 
-	var _Footer = __webpack_require__(185);
+	var _Footer = __webpack_require__(186);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -816,7 +815,7 @@ webpackJsonp([0],{
 	  function App() {
 	    _classCallCheck(this, App);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
 	  }
 
 	  _createClass(App, [{
@@ -828,7 +827,6 @@ webpackJsonp([0],{
 	      var visibleTodos = _props.visibleTodos;
 	      var visibilityFilter = _props.visibilityFilter;
 
-	      console.log(this.props);
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -876,9 +874,10 @@ webpackJsonp([0],{
 	  }
 	}
 
-	// Which props do we want to inject, given the global state?
-	// Note: use https://github.com/faassen/reselect for better performance.
+	// connect方法中的回调函数，负责向当前组件的 props 中注入 state
 	function select(state) {
+	  // return 返回的是需要向组件中注入的 props
+	  // 注入之后通过 this.props 查看这些 state 了
 	  return {
 	    visibleTodos: selectTodos(state.todos, state.visibilityFilter),
 	    visibilityFilter: state.visibilityFilter
@@ -956,7 +955,7 @@ webpackJsonp([0],{
 	  function AddTodo() {
 	    _classCallCheck(this, AddTodo);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AddTodo).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (AddTodo.__proto__ || Object.getPrototypeOf(AddTodo)).apply(this, arguments));
 	  }
 
 	  _createClass(AddTodo, [{
@@ -1016,7 +1015,7 @@ webpackJsonp([0],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Todo = __webpack_require__(187);
+	var _Todo = __webpack_require__(185);
 
 	var _Todo2 = _interopRequireDefault(_Todo);
 
@@ -1034,7 +1033,7 @@ webpackJsonp([0],{
 	  function TodoList() {
 	    _classCallCheck(this, TodoList);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(TodoList).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (TodoList.__proto__ || Object.getPrototypeOf(TodoList)).apply(this, arguments));
 	  }
 
 	  _createClass(TodoList, [{
@@ -1095,13 +1094,75 @@ webpackJsonp([0],{
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var Todo = function (_Component) {
+	  _inherits(Todo, _Component);
+
+	  function Todo() {
+	    _classCallCheck(this, Todo);
+
+	    return _possibleConstructorReturn(this, (Todo.__proto__ || Object.getPrototypeOf(Todo)).apply(this, arguments));
+	  }
+
+	  _createClass(Todo, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'li',
+	        {
+	          onClick: this.props.onClick,
+	          style: {
+	            textDecoration: this.props.completed ? 'line-through' : 'none',
+	            cursor: this.props.completed ? 'default' : 'pointer'
+	          } },
+	        this.props.text
+	      );
+	    }
+	  }]);
+
+	  return Todo;
+	}(_react.Component);
+
+	exports.default = Todo;
+
+
+	Todo.propTypes = {
+	  onClick: _react.PropTypes.func.isRequired,
+	  text: _react.PropTypes.string.isRequired,
+	  completed: _react.PropTypes.bool.isRequired
+	};
+
+/***/ },
+
+/***/ 186:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var Footer = function (_Component) {
 	  _inherits(Footer, _Component);
 
 	  function Footer() {
 	    _classCallCheck(this, Footer);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
 	  }
 
 	  _createClass(Footer, [{
@@ -1151,7 +1212,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 186:
+/***/ 187:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1206,68 +1267,6 @@ webpackJsonp([0],{
 	});
 
 	exports.default = todoApp;
-
-/***/ },
-
-/***/ 187:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Todo = function (_Component) {
-	  _inherits(Todo, _Component);
-
-	  function Todo() {
-	    _classCallCheck(this, Todo);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Todo).apply(this, arguments));
-	  }
-
-	  _createClass(Todo, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'li',
-	        {
-	          onClick: this.props.onClick,
-	          style: {
-	            textDecoration: this.props.completed ? 'line-through' : 'none',
-	            cursor: this.props.completed ? 'default' : 'pointer'
-	          } },
-	        this.props.text
-	      );
-	    }
-	  }]);
-
-	  return Todo;
-	}(_react.Component);
-
-	exports.default = Todo;
-
-
-	Todo.propTypes = {
-	  onClick: _react.PropTypes.func.isRequired,
-	  text: _react.PropTypes.string.isRequired,
-	  completed: _react.PropTypes.bool.isRequired
-	};
 
 /***/ }
 
