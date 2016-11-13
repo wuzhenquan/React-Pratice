@@ -13,13 +13,13 @@ webpackJsonp([0],{
 
 	var _redux = __webpack_require__(159);
 
-	var _reactRedux = __webpack_require__(172);
+	var _reactRedux = __webpack_require__(174);
 
-	var _App = __webpack_require__(181);
+	var _App = __webpack_require__(183);
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _reducers = __webpack_require__(187);
+	var _reducers = __webpack_require__(189);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -45,7 +45,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 172:
+/***/ 174:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53,11 +53,11 @@ webpackJsonp([0],{
 	exports.__esModule = true;
 	exports.connect = exports.Provider = undefined;
 
-	var _Provider = __webpack_require__(173);
+	var _Provider = __webpack_require__(175);
 
 	var _Provider2 = _interopRequireDefault(_Provider);
 
-	var _connect = __webpack_require__(176);
+	var _connect = __webpack_require__(178);
 
 	var _connect2 = _interopRequireDefault(_connect);
 
@@ -68,7 +68,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 173:
+/***/ 175:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -78,11 +78,11 @@ webpackJsonp([0],{
 
 	var _react = __webpack_require__(1);
 
-	var _storeShape = __webpack_require__(174);
+	var _storeShape = __webpack_require__(176);
 
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 
-	var _warning = __webpack_require__(175);
+	var _warning = __webpack_require__(177);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -153,7 +153,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 174:
+/***/ 176:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -170,7 +170,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 175:
+/***/ 177:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -200,7 +200,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 176:
+/***/ 178:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -212,19 +212,19 @@ webpackJsonp([0],{
 
 	var _react = __webpack_require__(1);
 
-	var _storeShape = __webpack_require__(174);
+	var _storeShape = __webpack_require__(176);
 
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 
-	var _shallowEqual = __webpack_require__(177);
+	var _shallowEqual = __webpack_require__(179);
 
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-	var _wrapActionCreators = __webpack_require__(178);
+	var _wrapActionCreators = __webpack_require__(180);
 
 	var _wrapActionCreators2 = _interopRequireDefault(_wrapActionCreators);
 
-	var _warning = __webpack_require__(175);
+	var _warning = __webpack_require__(177);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -232,11 +232,11 @@ webpackJsonp([0],{
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _hoistNonReactStatics = __webpack_require__(179);
+	var _hoistNonReactStatics = __webpack_require__(181);
 
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
-	var _invariant = __webpack_require__(180);
+	var _invariant = __webpack_require__(182);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -600,7 +600,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 177:
+/***/ 179:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -632,7 +632,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 178:
+/***/ 180:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -650,7 +650,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 179:
+/***/ 181:
 /***/ function(module, exports) {
 
 	/**
@@ -707,7 +707,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 180:
+/***/ 182:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -766,7 +766,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 181:
+/***/ 183:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -781,19 +781,19 @@ webpackJsonp([0],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(172);
+	var _reactRedux = __webpack_require__(174);
 
-	var _actions = __webpack_require__(182);
+	var _actions = __webpack_require__(184);
 
-	var _AddTodo = __webpack_require__(183);
+	var _AddTodo = __webpack_require__(185);
 
 	var _AddTodo2 = _interopRequireDefault(_AddTodo);
 
-	var _TodoList = __webpack_require__(184);
+	var _TodoList = __webpack_require__(186);
 
 	var _TodoList2 = _interopRequireDefault(_TodoList);
 
-	var _Footer = __webpack_require__(186);
+	var _Footer = __webpack_require__(188);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -822,10 +822,10 @@ webpackJsonp([0],{
 	    key: 'render',
 	    value: function render() {
 	      // Injected by connect() call:
-	      var _props = this.props;
-	      var dispatch = _props.dispatch;
-	      var visibleTodos = _props.visibleTodos;
-	      var visibilityFilter = _props.visibilityFilter;
+	      var _props = this.props,
+	          dispatch = _props.dispatch,
+	          visibleTodos = _props.visibleTodos,
+	          visibilityFilter = _props.visibilityFilter;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -889,7 +889,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 182:
+/***/ 184:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -924,7 +924,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 183:
+/***/ 185:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -998,7 +998,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 184:
+/***/ 186:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1015,7 +1015,7 @@ webpackJsonp([0],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Todo = __webpack_require__(185);
+	var _Todo = __webpack_require__(187);
 
 	var _Todo2 = _interopRequireDefault(_Todo);
 
@@ -1071,7 +1071,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 185:
+/***/ 187:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1133,7 +1133,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 186:
+/***/ 188:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1212,7 +1212,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 187:
+/***/ 189:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1223,7 +1223,7 @@ webpackJsonp([0],{
 
 	var _redux = __webpack_require__(159);
 
-	var _actions = __webpack_require__(182);
+	var _actions = __webpack_require__(184);
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -1231,7 +1231,7 @@ webpackJsonp([0],{
 
 
 	function visibilityFilter() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? SHOW_ALL : arguments[0];
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : SHOW_ALL;
 	  var action = arguments[1];
 
 	  switch (action.type) {
@@ -1243,7 +1243,7 @@ webpackJsonp([0],{
 	}
 
 	function todos() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 
 	  switch (action.type) {
