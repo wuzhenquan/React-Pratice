@@ -2,7 +2,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: `${__dirname}/app/index.html`, // ${__dirname} 為 ES6 語法對應到 __dirname  
+  template: `${__dirname}/src/index.html`, // ${__dirname} 為 ES6 語法對應到 __dirname  
   filename: 'index.html',
   inject: 'body',
 });
@@ -10,7 +10,7 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 module.exports = {
   // 檔案起始點從 entry 進入，因為是数组所以也可以是多個檔案
   entry: [
-    './app/index.js',
+    './src/index.js',
   ],
   // output 是放入產生出來的結果的相關參數
   output: {
