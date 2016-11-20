@@ -1,3 +1,4 @@
+// 引入顶级组件和 React 全家桶
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
@@ -10,6 +11,7 @@ import Contacts from './components/Contacts';
 
 ReactDOM.render(
   <Router history={hashHistory}>
+    {/*App 组件是母模板, 每进入一个 App 下的子组件, 都会先载入 App.js*/}
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/repos/:name" component={Repos} />

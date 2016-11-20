@@ -8,7 +8,7 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  // 檔案起始點從 entry 進入，因為是数组所以也可以是多個檔案
+  // 指定打包的入口文件, 每有一个键值对, 就是一个入口文件
   entry: [
     './src/index.js',
   ],
