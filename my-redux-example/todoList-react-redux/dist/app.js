@@ -26,7 +26,9 @@ webpackJsonp([0],{
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var store = (0, _redux.createStore)(_reducers2.default);
+	// store 有 dispatch getState replaceReducer subscribe Symbol 这些函数
 	var rootElement = document.getElementById('root');
+	console.log(store, 'store');
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRedux.Provider,
 	  { store: store },
@@ -833,14 +835,16 @@ webpackJsonp([0],{
 	        _react2.default.createElement(_AddTodo2.default, {
 	          onAddClick: function onAddClick(text) {
 	            return dispatch((0, _actions.addTodo)(text));
-	          } }),
+	          }
+	        }),
 	        _react2.default.createElement(_TodoList2.default, {
-	          todos: visibleTodos,
+	          visibleTodos: visibleTodos,
 	          onTodoClick: function onTodoClick(index) {
 	            return dispatch((0, _actions.completeTodo)(index));
-	          } }),
+	          }
+	        }),
 	        _react2.default.createElement(_Footer2.default, {
-	          filter: visibilityFilter,
+	          visibilityFilter: visibilityFilter,
 	          onFilterChange: function onFilterChange(nextFilter) {
 	            return dispatch((0, _actions.setVisibilityFilter)(nextFilter));
 	          } })
@@ -885,6 +889,7 @@ webpackJsonp([0],{
 	}
 
 	// 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
+	// select 是一个返回对象的函数
 	exports.default = (0, _reactRedux.connect)(select)(App);
 
 /***/ },
@@ -959,6 +964,14 @@ webpackJsonp([0],{
 	  }
 
 	  _createClass(AddTodo, [{
+	    key: 'handleClick',
+	    value: function handleClick(e) {
+	      var node = (0, _reactDom.findDOMNode)(this.refs.input);
+	      var text = node.value.trim();
+	      this.props.onAddClick(text);
+	      node.value = '';
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -975,14 +988,6 @@ webpackJsonp([0],{
 	          'Add'
 	        )
 	      );
-	    }
-	  }, {
-	    key: 'handleClick',
-	    value: function handleClick(e) {
-	      var node = (0, _reactDom.findDOMNode)(this.refs.input);
-	      var text = node.value.trim();
-	      this.props.onAddClick(text);
-	      node.value = '';
 	    }
 	  }]);
 
@@ -1044,12 +1049,13 @@ webpackJsonp([0],{
 	      return _react2.default.createElement(
 	        'ul',
 	        null,
-	        this.props.todos.map(function (todo, index) {
+	        this.props.visibleTodos.map(function (todo, index) {
 	          return _react2.default.createElement(_Todo2.default, _extends({}, todo, {
 	            key: index,
 	            onClick: function onClick() {
 	              return _this2.props.onTodoClick(index);
-	            } }));
+	            }
+	          }));
 	        })
 	      );
 	    }
@@ -1063,7 +1069,7 @@ webpackJsonp([0],{
 
 	TodoList.propTypes = {
 	  onTodoClick: _react.PropTypes.func.isRequired,
-	  todos: _react.PropTypes.arrayOf(_react.PropTypes.shape({ // 是否符合指定格式的物件
+	  visibleTodos: _react.PropTypes.arrayOf(_react.PropTypes.shape({ // 是否符合指定格式的物件
 	    text: _react.PropTypes.string.isRequired,
 	    completed: _react.PropTypes.bool.isRequired
 	  }).isRequired).isRequired
@@ -1168,16 +1174,17 @@ webpackJsonp([0],{
 	  _createClass(Footer, [{
 	    key: 'renderFilter',
 	    value: function renderFilter(filter, name) {
-	      var _this2 = this;
+	      var _props = this.props,
+	          visibilityFilter = _props.visibilityFilter,
+	          onFilterChange = _props.onFilterChange;
 
-	      if (filter === this.props.filter) {
+	      if (filter === visibilityFilter) {
 	        return name;
 	      }
 	      return _react2.default.createElement(
 	        'a',
-	        { href: '#', onClick: function onClick(e) {
-	            e.preventDefault();
-	            _this2.props.onFilterChange(filter);
+	        { href: '#', onClick: function onClick() {
+	            onFilterChange(filter);
 	          } },
 	        name
 	      );
@@ -1188,8 +1195,6 @@ webpackJsonp([0],{
 	      return _react2.default.createElement(
 	        'p',
 	        null,
-	        'Show:',
-	        ' ',
 	        this.renderFilter('SHOW_ALL', 'All'),
 	        ', ',
 	        this.renderFilter('SHOW_COMPLETED', 'Completed'),
@@ -1207,7 +1212,7 @@ webpackJsonp([0],{
 
 	Footer.propTypes = {
 	  onFilterChange: _react.PropTypes.func.isRequired,
-	  filter: _react.PropTypes.oneOf(['SHOW_ALL', 'SHOW_COMPLETED', 'SHOW_ACTIVE']).isRequired
+	  visibilityFilter: _react.PropTypes.oneOf(['SHOW_ALL', 'SHOW_COMPLETED', 'SHOW_ACTIVE']).isRequired
 	};
 
 /***/ },

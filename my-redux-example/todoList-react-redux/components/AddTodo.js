@@ -2,6 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import {findDOMNode} from 'react-dom'
 
 export default class AddTodo extends Component {
+  handleClick(e) {
+    const node = findDOMNode(this.refs.input);
+    const text = node.value.trim();
+    this.props.onAddClick(text);
+    node.value = '';
+  }
   render() {
     return (
       <div>
@@ -11,13 +17,6 @@ export default class AddTodo extends Component {
         </button>
       </div>
     );
-  }
-
-  handleClick(e) {
-    const node = findDOMNode(this.refs.input);
-    const text = node.value.trim();
-    this.props.onAddClick(text);
-    node.value = '';
   }
 }
 

@@ -9,23 +9,19 @@ import ReactDOM from 'react-dom'
 class App extends Component {
   render() {
     // Injected by connect() call:
-    const { dispatch, visibleTodos, visibilityFilter } = this.props
+    const { dispatch, visibleTodos, visibilityFilter} = this.props
     return (
       <div>
         <AddTodo
-          onAddClick={text =>
-            dispatch(addTodo(text))
-          } />
+          onAddClick={text => dispatch(addTodo(text))} 
+        />
         <TodoList
-          todos={visibleTodos}
-          onTodoClick={index =>
-            dispatch(completeTodo(index))
-          } />
+          visibleTodos={visibleTodos}
+          onTodoClick={index =>dispatch(completeTodo(index))} 
+          />
         <Footer
-          filter={visibilityFilter}
-          onFilterChange={nextFilter =>
-            dispatch(setVisibilityFilter(nextFilter))
-          } />
+          visibilityFilter={visibilityFilter}
+          onFilterChange={nextFilter =>dispatch(setVisibilityFilter(nextFilter)) } />
       </div>
     )
   }
@@ -65,4 +61,5 @@ function select(state) {
 }
 
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
+// select 是一个返回对象的函数
 export default connect(select)(App)

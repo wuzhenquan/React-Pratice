@@ -5,11 +5,17 @@ export default class TodoList extends Component {
   render(){
     return (
       <ul>  
-        {this.props.todos.map((todo, index) => {
-          return <Todo {...todo}
-                       key={index}
-                       onClick={() => this.props.onTodoClick(index)} />
-        })}
+        {
+          this.props.visibleTodos.map((todo, index) => {
+            return (
+              <Todo 
+                {...todo}
+                key={index}
+                onClick={() => this.props.onTodoClick(index)} 
+              />
+            )
+          })
+        }
       </ul>
     )
   }
@@ -17,7 +23,7 @@ export default class TodoList extends Component {
 
 TodoList.propTypes = {
   onTodoClick: PropTypes.func.isRequired,
-  todos: PropTypes.arrayOf(PropTypes.shape({ // 是否符合指定格式的物件
+  visibleTodos: PropTypes.arrayOf(PropTypes.shape({ // 是否符合指定格式的物件
     text: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired
   }).isRequired).isRequired
