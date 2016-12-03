@@ -6,3 +6,6 @@
 /my-redux-example/veryVeryEasyHelloWorld-react-redux/node_modules
 /my-redux-example/counter/node_modules
 /Project-ToDoList/node_modules
+/starter-kit/react+webpack/node_modules
+/starter-kit/react+webpack+redux/node_modules
+/starter-kit/react+webpack+router/node_modules
