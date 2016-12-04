@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom'
 
 class App extends Component {
   render() {
-    // Injected by connect() call:
+    // connect 之后, 会将 select 函数中所要返回的对象注入到 this.props 中
     const { dispatch, visibleTodos, visibilityFilter} = this.props
     return (
       <div>

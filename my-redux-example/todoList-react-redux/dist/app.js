@@ -28,7 +28,6 @@ webpackJsonp([0],{
 	var store = (0, _redux.createStore)(_reducers2.default);
 	// store 有 dispatch getState replaceReducer subscribe Symbol 这些函数
 	var rootElement = document.getElementById('root');
-	console.log(store, 'store');
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRedux.Provider,
 	  { store: store },
@@ -823,7 +822,7 @@ webpackJsonp([0],{
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      // Injected by connect() call:
+	      // connect 之后, 会将 select 函数中所要返回的对象注入到 this.props 中
 	      var _props = this.props,
 	          dispatch = _props.dispatch,
 	          visibleTodos = _props.visibleTodos,
@@ -909,12 +908,6 @@ webpackJsonp([0],{
 	var COMPLETE_TODO = exports.COMPLETE_TODO = 'COMPLETE_TODO';
 	var SET_VISIBILITY_FILTER = exports.SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 
-	var VisibilityFilters = exports.VisibilityFilters = {
-	  SHOW_ALL: 'SHOW_ALL',
-	  SHOW_COMPLETED: 'SHOW_COMPLETED',
-	  SHOW_ACTIVE: 'SHOW_ACTIVE'
-	};
-
 	function addTodo(text) {
 	  return { type: ADD_TODO, text: text };
 	}
@@ -926,6 +919,12 @@ webpackJsonp([0],{
 	function setVisibilityFilter(filter) {
 	  return { type: SET_VISIBILITY_FILTER, filter: filter };
 	}
+
+	var VisibilityFilters = exports.VisibilityFilters = {
+	  SHOW_ALL: 'SHOW_ALL',
+	  SHOW_COMPLETED: 'SHOW_COMPLETED',
+	  SHOW_ACTIVE: 'SHOW_ACTIVE'
+	};
 
 /***/ },
 
@@ -1069,7 +1068,7 @@ webpackJsonp([0],{
 
 	TodoList.propTypes = {
 	  onTodoClick: _react.PropTypes.func.isRequired,
-	  visibleTodos: _react.PropTypes.arrayOf(_react.PropTypes.shape({ // 是否符合指定格式的物件
+	  visibleTodos: _react.PropTypes.arrayOf(_react.PropTypes.shape({ // 是否符合指定格式
 	    text: _react.PropTypes.string.isRequired,
 	    completed: _react.PropTypes.bool.isRequired
 	  }).isRequired).isRequired

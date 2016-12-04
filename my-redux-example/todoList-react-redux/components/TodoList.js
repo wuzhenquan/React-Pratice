@@ -23,7 +23,7 @@ export default class TodoList extends Component {
 
 TodoList.propTypes = {
   onTodoClick: PropTypes.func.isRequired,
-  visibleTodos: PropTypes.arrayOf(PropTypes.shape({ // 是否符合指定格式的物件
+  visibleTodos: PropTypes.arrayOf(PropTypes.shape({ // 是否符合指定格式
     text: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired
   }).isRequired).isRequired
