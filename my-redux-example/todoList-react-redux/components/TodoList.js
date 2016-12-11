@@ -3,15 +3,16 @@ import Todo from './Todo'
 
 export default class TodoList extends Component {
   render(){
+  let { visibleTodos, onTodoClick} = this.props;
     return (
       <ul>  
         {
-          this.props.visibleTodos.map((todo, index) => {
+          visibleTodos.map((todo, index) => {
             return (
               <Todo 
                 {...todo}
                 key={index}
-                onClick={() => this.props.onTodoClick(index)} 
+                onTodoClick={ () => {onTodoClick(index)} }
               />
             )
           })
