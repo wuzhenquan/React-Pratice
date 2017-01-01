@@ -12,7 +12,7 @@ export default class TodoList extends Component {
               <Todo 
                 {...todo}
                 key={index}
-                onTodoClick={ () => {onTodoClick(index)} }
+                onTodoClick={() => {onTodoClick(index)}}
               />
             )
           })

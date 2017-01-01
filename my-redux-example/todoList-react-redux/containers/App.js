@@ -9,9 +9,9 @@ import ReactDOM from 'react-dom'
 class App extends Component {
   render() {
     // connect 之后, 会将 mapStateToProps 函数中所要返回的对象注入到 this.props 中
-    const { visibleTodos, visibilityFilter} = this.props
+    const { visibleTodos, visibilityFilter} = this.props // redux state 的数据
     // actions 函数
-    const { onAddClick, onTodoClick, onFilterChange }  = this.props
+    const { onAddClick, onTodoClick, onFilterChange }  = this.props // redux actions 的函数
     return (
       <div>
         <AddTodo
