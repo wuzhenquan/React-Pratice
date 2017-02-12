@@ -66,7 +66,6 @@ function mapStateToProps(state) {
   }
 }
 
-// connect方法中的回调函数，负责向当前组件的 props 中注入 dispatch
 function mapDispatchToProps(dispatch){
   return {
     onAddClick: (text) => {dispatch(addTodo(text))},
@@ -74,16 +73,6 @@ function mapDispatchToProps(dispatch){
     onFilterChange: (nextFilter) => {dispatch(setVisibilityFilter(nextFilter))},
   }
 }
-// 上面的函数里其实可以用 redux 的 bindActionCreators
-// 绑定了 action 之后在 App 组件及其子组件可以
-// 直接用 this.props.actions.actionFunc() 就可以直接 dispatch 这个 action 了
-// 我们在组件甚至看不到 dispatch 一个 action 的语句.
-// 具体可以看 https://github.com/reactjs/react-redux/blob/master/docs/api.md 的 Inject todos and a specific action creator (addTodo)
-// function mapDispatchToProps(dispatch){
-//   return {
-//     actions: bindActionCreators(todoActionCreators,dispatch)
-//   }
-// }
 
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(mapStateToProps)(App) 中；
 // mapStateToProps 是一个返回对象的函数
