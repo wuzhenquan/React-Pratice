@@ -14,7 +14,18 @@ react-redux 的 API 就两个,
 
 需要思考的问题:
 
-- reducers.js 文件为谁所用? 答: index.js 中需要 createStore, 作为 `<Provider />` 的 props
+- reducers.js 文件为谁所用? 
+
+  - index.js 中需要 createStore, 作为 `<Provider />` 的 props
+
+  - ```jsx
+    // index.js
+    import todoApp from './reducers/reducers.js'
+    let store = createStore(todoApp)
+    render(<Provider store={store}><App /></Provider>,rootElement)
+    ```
+
+
 - actions.js 文件为谁所用? 
   - 凡是要 dispatch 的, 都需要啊
   - 但是为了方便调用, 也不显式 dispatch 了. 直接在 mapDispatchToProps 里 bindActionCreators 就好了. 这种情况在 App.js 里引用. 
@@ -27,7 +38,7 @@ react + redux 的目录结构
 	  |- App.js
 	|- /actions/
 	|- /reducers/
-	|- /dist
+	|- /dist/
 	|- index.js
 	|- index.html
 	|- package.json
@@ -85,5 +96,18 @@ enhance [createStore()](http://redux.js.org/docs/api/createStore.html) with [
 
 两步:
 
-1. 在 index.js 下 `import { createStore,applyMiddleware } from 'redux'; let store = createStore(todoApp, applyMiddleware(thunk))`
+1. 在 index.js 下 
+  ```jsx
+  import { createStore,applyMiddleware } from 'redux'
+  let store = createStore(todoApp, applyMiddleware(thunk))
+  render(<Provider store={store}><App /></Provider>,rootElement)
+  ```
 2. 在 actions.js 下改一下 action creator, 使其 return 的是一个带有 dispatch 参数的函数而不是一个 action object. 在这个函数中, 我们就可以通过这个 dispatch 参数 dispatch 无限个 action 了.
+ ```javascript
+ export function completeTodo(index) { // action creator
+   return (dispatch) => {
+     dispatch({ type: COMPLETE_TODO, index })
+     // 可以继续 dispatch 无限个....
+   }
+ }
+ ```
